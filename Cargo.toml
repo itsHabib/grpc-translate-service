@@ -1,0 +1,30 @@
+[package]
+name = "translate-service"
+version = "0.1.0"
+authors = ["Michael Habib <mhabib@pixability.com>"]
+edition = "2018"
+
+[lib]
+name = "protos"
+path = "src/protos/mod.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+#grpcio = "0.4.4"
+grpcio = { version = "0.4.4", default-features = false, features = ["protobuf-codec"] }
+futures = "^0.1.15"
+protobuf = "2.0.0"
+rusoto_core = "0.36.0"
+rusoto_polly = "0.36.0"
+rusoto_translate = "0.36.0"
+
+[build-dependencies]
+protoc-grpcio = "0.3.1"
+

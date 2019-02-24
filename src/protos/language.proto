@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package language;
+
+service Language {
+  rpc Translate(LanguageRequest) returns (TranslateResponse) {}
+  rpc Synthesize(LanguageRequest) returns (SynthesizeResponse) {}
+}
+
+message LanguageRequest {
+  string text = 1;
+  LanguageCode source_language_code = 2;
+  LanguageCode target_language_code = 3;
+}
+
+
+message TranslateResponse {
+  string translated_text = 1;
+  ErrorType error_type = 3;
+}
+
+message SynthesizeResponse {
+  bytes audio_bytes = 1;
+  ErrorType error_type = 3;
+}
+
+enum ErrorType {
+  None = 0;
+  User = 1;
+  Internal = 2;
+}
+
+enum LanguageCode {
+  UNKNOWN = 0;
+  EN = 1;
+  ZH = 2;
+  FR = 3;
+  DE = 4;
+  PT = 5;
+  ES = 6;
+}
