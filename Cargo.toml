@@ -17,8 +17,8 @@ name = "client"
 path = "src/client.rs"
 
 [dependencies]
-#grpcio = "0.4.4"
-grpcio = { version = "0.4.4", default-features = false, features = ["protobuf-codec"] }
+grpcio = "0.4.4"
+#grpcio = { version = "0.4.4", default-features = false, features = ["protobuf-codec"] }
 futures = "^0.1.15"
 protobuf = "2.0.0"
 rusoto_core = "0.36.0"
